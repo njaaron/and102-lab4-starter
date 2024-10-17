@@ -17,22 +17,22 @@ The following **required** functionality is completed:
 - [X] (3 pts) **Articles are displayed using the RecyclerView.**
   - ![Image/GIF showing RecyclerView implementation]<img src='Lab4Part1.gif'> <!-- Replace this link with your actual image/GIF link -->
 
-- [ ] (4 pts) **Can navigate to the Article Details screen.**
-  - ![Image/GIF showing Article Details screen](http://i.imgur.com/link/to/your/gif/file.gif) <!-- Replace this link with your actual image/GIF link -->
+- [X] (4 pts) **Can navigate to the Article Details screen.**
+  - ![Image/GIF showing Article Details screen]<img src='Lab4Part2.gif'> <!-- Replace this link with your actual image/GIF link -->
 
-- [ ] (3 pts) **Article images are downloaded and displayed using Glide.**
-  - ![Image/GIF showing Glide usage](http://i.imgur.com/link/to/your/gif/file.gif) <!-- Replace this link with your actual image/GIF link -->
+- [X] (3 pts) **Article images are downloaded and displayed using Glide.**
+  - ![Image/GIF showing Glide usage]<img src='Lab4Part2.gif'> <!-- Replace this link with your actual image/GIF link -->
 
 ### Stretch Features
 
 The following **stretch** functionality is implemented:
 
-- [ ] (+2 pts bonus) **Enhanced the UI for the application with customized fonts and ConstraintLayout for each of the screens.**
-  - ![Image/GIF showing custom UI styling](http://i.imgur.com/link/to/your/gif/file.gif) <!-- Replace this link with your actual image/GIF link -->
+- [X] (+2 pts bonus) **Enhanced the UI for the application with customized fonts and ConstraintLayout for each of the screens.**
+  - ![Image/GIF showing custom UI styling]<img src='Lab4Part1.gif'> <!-- Replace this link with your actual image/GIF link -->
 
 ## Notes
 
-Describe any challenges encountered while building the app. <!-- Replace this with your specific challenges and experiences -->
+No challenges really when creating the app, followed the lab and it gave great directions. I only had challenges after when running because I had to change my emulator. <!-- Replace this with your specific challenges and experiences -->
 
 ## Resources
 
@@ -44,7 +44,7 @@ Describe any challenges encountered while building the app. <!-- Replace this wi
 ## License
 
 ```plaintext
-    Copyright [yyyy] [Your Name]
+    Copyright [2024] [Aaron Hsu]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
