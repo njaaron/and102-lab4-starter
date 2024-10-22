@@ -22,26 +22,23 @@ fun createJson() = Json {
 private const val TAG = "MainActivity/"
 private const val SEARCH_API_KEY = BuildConfig.API_KEY
 private const val ARTICLE_SEARCH_URL =
-    "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${SEARCH_API_KEY}"
+    "https://api.themoviedb.org/3/person/popular?api_key=${SEARCH_API_KEY}"
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var articlesRecyclerView: RecyclerView
+    private lateinit var peopleRecyclerView: RecyclerView
     private lateinit var binding: ActivityMainBinding
+    private val people = mutableListOf<Person>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
-        articlesRecyclerView = findViewById(R.id.articles)
-        // TODO: Set up ArticleAdapter with articles
+        peopleRecyclerView = findViewById(R.id.people)
 
-        articlesRecyclerView.layoutManager = LinearLayoutManager(this).also {
-            val dividerItemDecoration = DividerItemDecoration(this, it.orientation)
-            articlesRecyclerView.addItemDecoration(dividerItemDecoration)
-        }
+        val personAdapter = PersonAdapter(this, people)
+        peopleRecyclerView.adapter = personAdapter
+        peopleRecyclerView.layoutManager = LinearLayoutManager(this)
 
         val client = AsyncHttpClient()
         client.get(ARTICLE_SEARCH_URL, object : JsonHttpResponseHandler() {
@@ -51,24 +48,25 @@ class MainActivity : AppCompatActivity() {
                 response: String?,
                 throwable: Throwable?
             ) {
-                Log.e(TAG, "Failed to fetch articles: $statusCode")
+                Log.e(TAG, "Failed to fetch people: $statusCode")
             }
 
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
-                Log.i(TAG, "Successfully fetched articles: $json")
+                Log.i(TAG, "Successfully fetched people: $json")
                 try {
-                    // TODO: Create the parsedJSON
+                    val parsedJson = createJson().decodeFromString(
+                        PopularPeopleResponse.serializer(),
+                        json.jsonObject.toString()
+                    )
 
-                    // TODO: Do something with the returned json (contains article information)
-
-                    // TODO: Save the articles and reload the screen
-
+                    parsedJson.results?.let { list ->
+                        people.addAll(list)
+                    }
+                    personAdapter.notifyDataSetChanged()
                 } catch (e: JSONException) {
                     Log.e(TAG, "Exception: $e")
                 }
             }
-
         })
-
     }
 }

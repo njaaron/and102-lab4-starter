@@ -5,17 +5,18 @@
     android:layout_height="200dp">
 
     <ImageView
-        android:id="@+id/mediaImage"
+        android:id="@+id/profileImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerInside"
+        android:transitionName="profileImageTransition"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent=".35" />
 
     <TextView
-        android:id="@+id/mediaTitle"
+        android:id="@+id/personName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -23,14 +24,14 @@
         android:layout_marginEnd="10dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:text="Title"
+        android:text="Person Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/mediaImage"
-        app:layout_constraintTop_toTopOf="@+id/mediaImage" />
+        app:layout_constraintStart_toEndOf="@id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage" />
 
     <TextView
-        android:id="@+id/mediaAbstract"
+        android:id="@+id/knownFor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -38,10 +39,10 @@
         android:layout_marginEnd="10dp"
         android:ellipsize="end"
         android:maxLines="4"
-        android:text="Abstract"
+        android:text="Known for movies or shows"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mediaImage"
-        app:layout_constraintTop_toBottomOf="@+id/mediaTitle" />
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toBottomOf="@+id/personName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
